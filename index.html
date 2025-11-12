@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSL - Carga Soluciones y Logística</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- CHAT DE n8n: ESTILOS CDN + DARK MODE PERSONALIZADO -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+        :root {
+            --chat--color--primary: #0ea5e9;
+            --chat--color--primary-shade-50: #0284c7;
+            --chat--color--primary-shade-100: #0369a1;
+            --chat--color--secondary: #10b981;
+            --chat--color-white: #f8fafc;
+            --chat--color-light: #1e293b;
+            --chat--color-light-shade-50: #334155;
+            --chat--color-light-shade-100: #475569;
+            --chat--color-medium: #64748b;
+            --chat--color-dark: #e2e8f0;
+            --chat--color-typing: #94a3b8;
+            --chat--color-disabled: #475569;
+
+            --chat--spacing: 1.3rem;
+            --chat--border-radius: 18px;
+            --chat--transition-duration: 0.25s;
+
+            --chat--window--width: 430px;
+            --chat--window--height: 680px;
+
+            --chat--header--background: #0f172a;
+            --chat--header--color: #e2e8f0;
+            --chat--header--padding: 1.4rem;
+            --chat--header--border-bottom: 1px solid #1e293b;
+
+            --chat--heading--font-size: 1.6rem;
+            --chat--subtitle--font-size: 0.95rem;
+            --chat--subtitle--line-height: 1.5;
+
+            --chat--message--font-size: 1rem;
+            --chat--message--padding: 1rem 1.2rem;
+            --chat--message--border-radius: 16px;
+            --chat--message-line-height: 1.6;
+
+            --chat--message--bot--background: #1e293b;
+            --chat--message--bot--color: #e2e8f0;
+            --chat--message--bot--border: 1px solid #334155;
+
+            --chat--message--user--background: var(--chat--color--secondary);
+            --chat--message--user--color: white;
+
+            --chat--message--pre--background: #0f172a;
+
+            --chat--toggle--background: var(--chat--color--primary);
+            --chat--toggle--hover--background: var(--chat--color--primary-shade-50);
+            --chat--toggle--active--background: var(--chat--color--primary-shade-100);
+            --chat--toggle--color: white;
+            --chat--toggle--size: 70px;
+
+            --chat--textarea--height: 58px;
+        }
+
+        #n8n-chat .chat-window {
+            background: #0f172a !important;
+            border: 1px solid #1e293b;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+            border-radius: 20px !important;
+            overflow: hidden;
+        }
+
+        #n8n-chat .chat-toggle {
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        #n8n-chat .chat-toggle:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 28px rgba(14, 165, 233, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CHAT DE n8n: CONTENEDOR -->
+    <div id="n8n-chat"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand"><span class="text-primary">CSL</span> Carga soluciones y logística</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarS"
+                aria-controls="navbarS" aria-expanded="false" aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarS">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#nosotros" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servicios" class="nav-link">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#flota" class="nav-link">Flota</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#clientes" class="nav-link">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contacto" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselE" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="slide 1"></button>
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1" aria-label="slide 2"></button>
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2" aria-label="slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/carrusel1.jpg" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption">
+                    <h5>Transporte de carga a nivel nacional</h5>
+                    <p>Movemos su carga con seguridad, puntualidad y cobertura en todo el territorio colombiano.</p>
+                    <a href="#servicios" class="btn btn-primary mt-3">Más información</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/carousel 3.jpg" class="d-block w-100" alt="Slide 2" loading="lazy">
+                <div class="carousel-caption">
+                    <h5>Flota moderna y conductores expertos</h5>
+                    <p>Contamos con vehículos propios, monitoreo satelital y personal altamente capacitado.</p>
+                    <a href="#flota" class="btn btn-primary mt-3">Más información</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/carrusel3.jpg" class="d-block w-100" alt="Slide 3" loading="lazy">
+                <div class="carousel-caption">
+                    <h5>Tecnología y compromiso en cada ruta</h5>
+                    <p>Control satelital, comunicación constante y trazabilidad total para tu tranquilidad.</p>
+                    <a href="#servicios" class="btn btn-primary mt-3">Servicios</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselE" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselE" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <section id="nosotros" class="about section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="about-img">
+                        <img src="img/somos.jpg" class="img-fluid" alt="Nosotros" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                    <div class="about-text text-white">
+                        <h2>Quiénes Somos <br>Nosotros</h2>
+                        <p>Somos una empresa de transporte de carga a nivel
+                            nacional, habilitada por el ministerio de transporte para
+                            operar mediante la Resolución N°000008 del 31 enero
+                            de 2019, comprometida con la calidad de sus servicios y
+                            confianza depositada por sus clientes en el manejo,
+                            transporte y entrega de sus productos.
+                            Nuestros 12 años de experiencia nos caracterizan por
+                            ofrecer soluciones integrales justo a las necesidades de
+                            nuestros clientes. Contando con disponibilidad de flota
+                            propia</p>
+                        <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+                    </div>
+                </div>
+            </div>
+            <!-- NUEVA SECCIÓN: MISIÓN, VISIÓN, VALORES Y POLÍTICA -->
+            <div class="row mt-5 pt-5">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-4">
+                        <h2>Nuestros Pilares</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- MISIÓN -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-bullseye" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h3 class="card-title mt-3">Misión</h3>
+                            <p class="lead">
+                                Cumplir y satisfacer cada una de las necesidades de los clientes
+                                a través de una respuesta segura y eficiente,
+                                garantizando un óptimo servicio de transporte de carga terrestre,
+                                con una infraestructura sólida que nos permita mantenernos en el tiempo,
+                                brindando confiabilidad y generando bienestar a sus colaboradores.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- VISIÓN -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-eye" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h3 class="card-title mt-3">Visión</h3>
+                            <p class="lead">
+                                Cumplir y satisfacer cada una de las necesidades de los clientes
+                                a través de una respuesta segura y eficiente,
+                                garantizando un óptimo servicio de transporte de carga terrestre,
+                                con una infraestructura sólida que nos permita mantenernos en el tiempo,
+                                brindando confiabilidad y generando bienestar a sus colaboradores.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- VALORES -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-heart" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h3 class="card-title mt-3">Valores</h3>
+                            <p class="lead">
+                                Valores que enmarcan nuestra labor empresarial:
+                                Responsabilidad,
+                                Calidad de servicio,
+                                Eficiencia,
+                                Honestidad,
+                                Seguridad,
+                                Trabajo en equipo,
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- POLÍTICA -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-shield-check" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h3 class="card-title mt-3">Política</h3>
+                            <p class="lead">
+                                Cumplir con los más altos estándares de calidad, seguridad vial y protección ambiental
+                                en todas nuestras operaciones logísticas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- NUEVA SECCIÓN: OPERACIÓN SEGURA -->
+            <div class="row mt-5 pt-5">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-4">
+                        <h2>Operación Segura</h2>
+                        <p>Contamos con:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Pólizas de mercancías -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-file-earmark-text" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h4 class="card-title mt-3">Pólizas de Mercancías</h4>
+                            <p class="lead">
+                                Cobertura completa para proteger su carga durante todo el proceso de transporte.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pólizas de responsabilidad civil -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-shield-fill-check" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h4 class="card-title mt-3">Pólizas de Responsabilidad Civil</h4>
+                            <p class="lead">
+                                Respaldo legal y financiero en todas nuestras operaciones de transporte.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Satelitales de última tecnología -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-broadcast" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h4 class="card-title mt-3">Satelitales de Última Tecnología 3G</h4>
+                            <p class="lead">
+                                Sistemas de rastreo satelital de última generación con conectividad 3G.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Monitoreo satelital 24/7 -->
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-radar" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h4 class="card-title mt-3">Monitoreo Satelital 24/7</h4>
+                            <p class="lead">
+                                Control permanente de todas nuestras unidades las 24 horas del día, los 7 días de la
+                                semana.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Seguimiento vehicular 24/7 -->
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card text-white text-center bg-dark h-100 pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-pin-map" style="font-size: 3rem; color: #0d6efd;"></i>
+                            <h4 class="card-title mt-3">Seguimiento Vehicular 24/7</h4>
+                            <p class="lead">
+                                Trazabilidad completa de su carga con información en tiempo real sobre ubicación y
+                                estado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- NUEVA SECCIÓN: HISTÓRICO 2019-2022 -->
+            <div class="row mt-5 pt-5">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-4">
+                        <h2>Nuestro Histórico</h2>
+                        <p>Crecimiento y consolidación 2019 - 2022</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="timeline-container">
+                        <div class="row g-4 justify-content-center">
+                            <!-- 2019 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card text-white bg-dark h-100">
+                                    <div class="card-body text-center">
+                                        <div class="year-badge mb-3">
+                                            <h2 class="text-primary mb-0">2019</h2>
+                                        </div>
+                                        <h4 class="card-title">Crecimiento y modernización de la flota</h4>
+                                        <p class="card-text">
+                                            Adquirimos nuevos equipos,
+                                            incrementando la flota propia en 12 vehículos,
+                                            lo que ha permitido ampliar la disponibilidad de equipos
+                                            y el cumplimiento oportuno a las necesidades de nuestros clientes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 2021 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card text-white bg-dark h-100">
+                                    <div class="card-body text-center">
+                                        <div class="year-badge mb-3">
+                                            <h2 class="text-primary mb-0">2021</h2>
+                                        </div>
+                                        <h4 class="card-title">Certificación BASC: Compromiso con la seguridad y la
+                                            transparencia</h4>
+                                        <p class="card-text">
+                                            Obtenemos la certificación BASC
+                                            y ratificamos nuestro compromiso con nuestras políticas de seguridad y
+                                            transparencia empresarial,
+                                            que promueve un comercio seguro en cooperación con gobiernos y organismos
+                                            internacionales.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 2022 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card text-white bg-dark h-100">
+                                    <div class="card-body text-center">
+                                        <div class="year-badge mb-3">
+                                            <h2 class="text-primary mb-0">2022</h2>
+                                        </div>
+                                        <h4 class="card-title">Recertificación BASC 2022</h4>
+                                        <p class="card-text">
+                                            Fuimos evaluados y recertificados
+                                            con respecto a las Normas y Estándares Internacionales BASC,
+                                            alineados a los requerimientos mínimos de seguridad en mayo del 2022.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- NUEVA SECCIÓN: FLOTA TERCERIZADA -->
+            <div class="row mt-5 pt-4">
+                <div class="col-md-12">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-truck-front" style="font-size: 4rem; color: #0d6efd;"></i>
+                                <h3 class="text-primary mt-3">FLOTA TERCERIZADA</h3>
+                            </div>
+                            <p class="lead text-center">
+                                Contamos con una significativa flota tercerizada para el transporte de carga a nivel
+                                nacional.
+                                Seleccionados a través de minuciosos procedimientos garantizando operaciones seguras y
+                                transparentes.
+                            </p>
+                            <div class="row mt-4">
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="bi bi-clipboard-check text-primary" style="font-size: 2.5rem;"></i>
+                                    <h5 class="mt-2">Selección Rigurosa</h5>
+                                    <p>Procedimientos minuciosos de verificación</p>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="bi bi-shield-check text-primary" style="font-size: 2.5rem;"></i>
+                                    <h5 class="mt-2">Operaciones Seguras</h5>
+                                    <p>Cumplimiento de estándares de seguridad</p>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="bi bi-eye text-primary" style="font-size: 2.5rem;"></i>
+                                    <h5 class="mt-2">Transparencia Total</h5>
+                                    <p>Seguimiento y control permanente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>Nuestros Servicios</h2>
+                        <p>
+                            Servicios de transporte terrestre especializado para diferentes tipos de carga
+                            <br> con cobertura nacional y garantía de calidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SU ALIADO LOGÍSTICO (CON BORDE AZUL SUPERIOR - ESTILO IMAGEN 2) -->
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white mb-5">
+                        <h3 class="text-primary">Su Aliado Logístico</h3>
+                        <p class="lead">Soluciones integrales de transporte para su negocio</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- Materias Primas -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/materia prima.jpg" alt="Materias Primas" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Materias Primas</h5>
+                            <p class="small">Transporte especializado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto Terminado -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/producto.jpg" alt="Producto Terminado" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Producto Terminado</h5>
+                            <p class="small">Distribución nacional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exportación e Importación -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/impo.jpg" alt="Exportación e Importación" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Exportación e Importación</h5>
+                            <p class="small">Comercio internacional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puertos Marítimos -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/puerto.jpg" alt="Puertos Marítimos" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Puertos Marítimos</h5>
+                            <p class="small">Nivel regional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rutas Nacionales -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/ruta.jpg" alt="Rutas Nacionales" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Rutas Nacionales</h5>
+                            <p class="small">Cobertura total</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transporte Urbano -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/ruta2.jpg" alt="Transporte Urbano" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Transporte Urbano</h5>
+                            <p class="small">Entregas en ciudad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operaciones de Buque -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/buke.jpg" alt="Operaciones de Buque" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Operaciones de Buque</h5>
+                            <p class="small">Logística portuaria</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carga en Contenedores -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-aliado bg-dark text-white text-center h-100">
+                        <div class="card-servicio-borde-top"></div>
+                        <div class="card-servicio-img">
+                            <img src="img/contenedores.jpg" alt="Carga en Contenedores" loading="lazy">
+                        </div>
+                        <div class="card-servicio-content">
+                            <h5>Carga en Contenedores</h5>
+                            <p class="small">20' y 40' pies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICIOS ESPECIALIZADOS (SIN BORDE - ESTILO IMAGEN 1) -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white">
+                        <h3>Servicios Especializados</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Contenedores -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/conte2.jpg" alt="Contenedores" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Contenedores</h3>
+                            <p class="lead">
+                                Transporte especializado de contenedores marítimos de 20' y 40' con servicio puerta a
+                                puerta.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mercancía a Granel -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/granel.jpg" alt="Mercancía a Granel" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Mercancía a Granel</h3>
+                            <p class="lead">
+                                Transporte de mercancía a granel con vehículos especializados y sistemas de carga
+                                seguros.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aceros -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/acero.jpg" alt="Aceros" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Aceros</h3>
+                            <p class="lead">
+                                Transporte especializado de acero estructural, varillas y productos siderúrgicos con
+                                sujeción certificada.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azúcar -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/img.jpg" alt="Azúcar" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Azúcar</h3>
+                            <p class="lead">
+                                Transporte de azúcar refinada y morena en bultos, con protección contra humedad y
+                                contaminación.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arroz -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/arroz.jpg" alt="Arroz" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Arroz</h3>
+                            <p class="lead">
+                                Transporte de arroz en bultos con condiciones óptimas de ventilación y protección del
+                                producto.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fertilizantes -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/fertil.jpg" alt="Fertilizantes" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Fertilizantes</h3>
+                            <p class="lead">
+                                Transporte seguro de fertilizantes agrícolas cumpliendo normativas ambientales y de
+                                seguridad.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maquinaria y Partes -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card-servicio-especializado text-white text-center bg-dark h-100">
+                        <div class="card-servicio-img-especializado">
+                            <img src="img/maqui.jpg" alt="Maquinaria y Partes" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Maquinaria y Partes</h3>
+                            <p class="lead">
+                                Transporte de maquinaria industrial, equipos pesados y autopartes con manipulación
+                                especializada.
+                            </p>
+                            <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FLOTA COMPLETA Y UNIFICADA -->
+    <section id="flota" class="flota section-padding">
+        <!-- Hero Section Flota -->
+        <div class="hero-section-flota">
+            <div class="container">
+                <div class="hero-content-flota">
+                    <h2 class="hero-title-flota">Nuestra Flota</h2>
+                    <p class="hero-description-flota">
+                        Contamos con una flota propia de 12 vehículos destinada a atender las necesidades de transporte
+                        de nuestros clientes.
+                        Brindamos un servicio de transporte terrestre de carga seguro, confiable y competitivo, con
+                        cobertura a nivel local, regional y nacional.
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section Flota (Tarjetas originales) -->
+        <div class="features-section-flota">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card text-light text-center bg-dark pb-2 h-100">
+                            <div class="card-body text-white">
+                                <div class="img-area mb-4">
+                                    <img src="img/flota1.jpg" class="img-fluid" alt="Camión 1" loading="lazy">
+                                </div>
+                                <h3>Flota moderna y en óptimas condiciones</h3>
+                                <p class="lead">Mantenemos nuestros vehículos en excelente estado con mantenimiento
+                                    preventivo constante, garantizando seguridad y puntualidad en cada operación.</p>
+                                <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card text-light text-center bg-dark pb-2 h-100">
+                            <div class="card-body text-white">
+                                <div class="img-area mb-4">
+                                    <img src="img/flota2.jpg" class="img-fluid" alt="Camión 2" loading="lazy">
+                                </div>
+                                <h3>Tecnología y monitoreo satelital 24/7</h3>
+                                <p class="lead">Todos nuestros vehículos están equipados con sistemas de rastreo
+                                    satelital para asegurar el control total y la trazabilidad de cada envío.</p>
+                                <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card text-light text-center bg-dark pb-2 h-100">
+                            <div class="card-body text-white">
+                                <div class="img-area mb-4">
+                                    <img src="img/flota3.jpg" class="img-fluid" alt="Camión 3" loading="lazy">
+                                </div>
+                                <h3>Conductores expertos y comprometidos</h3>
+                                <p class="lead">Nuestro equipo de conductores cuenta con amplia experiencia y formación
+                                    en seguridad vial, brindando confianza y profesionalismo en cada entrega.</p>
+                                <a href="#contacto" class="btn bg-primary text-white">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fleet Gallery Section con Swiper (NUEVO) -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h3>Conoce Nuestros Vehículos</h3>
+                        <p>Tractomulas de última generación para todo tipo de carga</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="icons-flota">
+                            <div class="icon-logo-flota">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="icon-favorite-flota">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+                        <div class="vehicle-image-flota">
+                            <img src="img/flota1.jpg" alt="Tractomula Kenworth">
+                        </div>
+                        <h3 class="product-title-flota">TRACTOMULA KENWORTH T680</h3>
+                        <p class="product-description-flota">
+                            Tractomula de última generación diseñada para transporte de carga pesada en largas
+                            distancias nacionales e internacionales. Equipado con la más alta tecnología en seguridad y
+                            eficiencia energética.
+                        </p>
+                        <ul class="product-specs-flota">
+                            <li><i class="bi bi-check-circle-fill"></i> Capacidad de carga: 34 toneladas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Motor Cummins X15 de 500 HP</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Transmisión automática de 12 velocidades</li>
+                            <li><i class="bi bi-check-circle-fill"></i> GPS con rastreo satelital en tiempo real</li>
+                        </ul>
+                        <a href="#contacto" class="btn-flota">Más Información</a>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="icons-flota">
+                            <div class="icon-logo-flota">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="icon-favorite-flota">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+                        <div class="vehicle-image-flota">
+                            <img src="img/flota2.jpg" alt="Tractomula Freightliner">
+                        </div>
+                        <h3 class="product-title-flota">TRACTOMULA FREIGHTLINER CASCADIA</h3>
+                        <p class="product-description-flota">
+                            Vehículo versátil ideal para distribución regional y transporte de larga distancia. Combina
+                            potencia y economía de combustible para rutas exigentes con excelente rendimiento operativo.
+                        </p>
+                        <ul class="product-specs-flota">
+                            <li><i class="bi bi-check-circle-fill"></i> Capacidad de carga: 32 toneladas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Motor Detroit DD15 de 475 HP</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tecnología de ahorro de combustible</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sistema de telemetría y diagnóstico remoto</li>
+                        </ul>
+                        <a href="#contacto" class="btn-flota">Más Información</a>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="icons-flota">
+                            <div class="icon-logo-flota">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="icon-favorite-flota">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+                        <div class="vehicle-image-flota">
+                            <img src="img/flota3.jpg" alt="Tractomula Volvo">
+                        </div>
+                        <h3 class="product-title-flota">TRACTOMULA VOLVO FH16</h3>
+                        <p class="product-description-flota">
+                            Unidad premium para transporte de carga especializada. Diseñada con tecnología sueca de
+                            vanguardia para maximizar seguridad, confort del conductor y eficiencia en el consumo de
+                            combustible.
+                        </p>
+                        <ul class="product-specs-flota">
+                            <li><i class="bi bi-check-circle-fill"></i> Capacidad de carga: 35 toneladas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Motor Volvo D13 de 540 HP</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sistema I-Save para máxima eficiencia</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Rastreo GPS con geocercas programables</li>
+                        </ul>
+                        <a href="#contacto" class="btn-flota">Más Información</a>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="icons-flota">
+                            <div class="icon-logo-flota">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="icon-favorite-flota">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+                        <div class="vehicle-image-flota">
+                            <img src="img/carrusel3.jpg" alt="Tractomula Internacional">
+                        </div>
+                        <h3 class="product-title-flota">TRACTOMULA INTERNACIONAL LONESTAR</h3>
+                        <p class="product-description-flota">
+                            Tractocamión robusto y confiable para servicios de larga distancia. Sistema optimizado para
+                            carreteras y autopistas con gran capacidad de arrastre y excelente estabilidad en ruta.
+                        </p>
+                        <ul class="product-specs-flota">
+                            <li><i class="bi bi-check-circle-fill"></i> Capacidad de carga: 30 toneladas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Motor Cummins ISX15 de 450 HP</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Transmisión Eaton Fuller de 10 velocidades</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sistema de navegación y monitoreo GPS</li>
+                        </ul>
+                        <a href="#contacto" class="btn-flota">Más Información</a>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="swiper-slide">
+                        <div class="icons-flota">
+                            <div class="icon-logo-flota">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="icon-favorite-flota">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+                        <div class="vehicle-image-flota">
+                            <img src="img/carrusel1.jpg" alt="Tractomula Mercedes">
+                        </div>
+                        <h3 class="product-title-flota">TRACTOMULA MERCEDES-BENZ ACTROS</h3>
+                        <p class="product-description-flota">
+                            Unidad de alto rendimiento europea para transporte de carga masiva. Tecnología alemana de
+                            punta con sistemas inteligentes de asistencia al conductor y máxima seguridad operacional.
+                        </p>
+                        <ul class="product-specs-flota">
+                            <li><i class="bi bi-check-circle-fill"></i> Capacidad de carga: 33 toneladas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Motor Mercedes OM471 de 510 HP</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Powershift G281-12 automatizada</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sistema de asistencia activa al conductor</li>
+                        </ul>
+                        <a href="#contacto" class="btn-flota">Más Información</a>
+                    </div>
+
+                </div>
+
+                <!-- Paginación -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- Botón principal -->
+            <div class="main-action-flota">
+                <a href="#contacto" class="btn-comprar-principal-flota">Solicitar Cotización</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="clientes" class="clientes section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>Nuestros Clientes</h2>
+                        <p>
+                            Trabajamos con empresas líderes en diferentes industrias, brindando soluciones
+                            personalizadas para satisfacer sus necesidades específicas.
+                            <br>Nuestros clientes confían en nosotros por nuestra experiencia, confiabilidad y
+                            compromiso con la excelencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/cliente1.jpg" class="img-fluid rounded-circle mb-3" alt="Procar"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Procar</h3>
+                            <p class="card-text">Empresa colombiana con más de 40 años de experiencia en la venta
+                                y distribución al por mayor de partes y accesorios para automotores.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/cliente2.jpg" class="img-fluid rounded-circle mb-3" alt="Cliente 2"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Agofer</h3>
+                            <p class="card-text">Líder en producción y distribución de azúcar refinada. Socio
+                                estratégico en logística de productos agroindustriales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/cliente3.jpg" class="img-fluid rounded-circle mb-3" alt="Cliente 3"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Meico</h3>
+                            <p class="card-text">Empresa líder en producción de acero estructural. Confianza en
+                                transporte especializado de cargas pesadas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/pic-20.png" class="img-fluid rounded-circle mb-3" alt="Cliente 4"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Molinos del Caribe</h3>
+                            <p class="card-text">Procesadora de arroz de la costa atlántica. Aliado en distribución
+                                nacional de productos alimenticios.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/cliente 4.jpg" class="img-fluid rounded-circle mb-3" alt="Cliente 5"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Trading group international S.A.S</h3>
+                            <p class="card-text">Distribuidora de fertilizantes y agroquímicos. Colaboración en
+                                transporte seguro de productos agrícolas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/cliente5.jpg" class="img-fluid rounded-circle mb-3" alt="Cliente 6"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Sudeco</h3>
+                            <p class="card-text">Importadora de maquinaria pesada. Especialistas en logística de equipos
+                                de alta complejidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/cliente6.jpg" class="img-fluid rounded-circle mb-3" alt="Cliente 7"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Markem</h3>
+                            <p class="card-text">Operador portuario especializado en contenedores. Partner en transporte
+                                terrestre desde puertos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark mb-4 h-100">
+                        <div class="card-body text-white">
+                            <img src="img/pic-20.png" class="img-fluid rounded-circle mb-3" alt="Cliente 8"
+                                style="max-width: 150px;" loading="lazy">
+                            <h3 class="card-title py-2">Distribuidora Nacional</h3>
+                            <p class="card-text">Red de distribución mayorista. Confianza en entregas puntuales y
+                                cobertura en todo el territorio nacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact section-padding">
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>Contáctanos</h2>
+                        <p>
+                            Si tienes alguna pregunta o consulta, no dudes en ponerte en contacto con nosotros.
+                            <br> Estamos aquí para ayudarte y responder a todas tus inquietudes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Dirección y Mapa -->
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="card bg-dark text-white p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h3 class="mb-4"><i class="bi bi-geo-alt-fill text-primary me-2"></i>Nuestra Ubicación
+                                </h3>
+                                <p class="lead mb-3">
+                                    <strong>Dirección:</strong><br>
+                                    Calle 4 N° 30-227 Vía Terminal Marítimo<br>
+                                    Barranquilla, Atlántico<br>
+                                    Colombia
+                                </p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Calle+4+30-227+Terminal+Maritimo+Barranquilla+Atlantico"
+                                    target="_blank" class="btn btn-primary">
+                                    <i class="bi bi-map me-2"></i>Ver en Google Maps
+                                </a>
+                            </div>
+                            <div class="col-lg-6 mt-4 mt-lg-0">
+                                <div class="ratio ratio-16x9">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.3!2d-74.78!3d10.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDU4JzEzLjIiTiA3NMKwNDYnNDguMCJX!5e0!3m2!1ses!2sco!4v1234567890"
+                                        style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Equipo de Contacto -->
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-4">
+                        <h3>Nuestro Equipo</h3>
+                        <p>Contacta directamente con nuestros especialistas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mb-5">
+                <!-- Director Operativo -->
+                <div class="col-12 col-md-4">
+                    <div class="card bg-dark text-white h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="bi bi-person-circle" style="font-size: 4rem; color: #0d6efd;"></i>
+                            </div>
+                            <h4 class="card-title text-primary">Director Operativo</h4>
+                            <p class="card-text mb-3">Coordinación y gestión de operaciones </p>
+
+                            <div class="contact-info text-start">
+                                <p class="mb-2">
+                                    <i class="bi bi-person-badge text-primary me-2"></i>
+                                    <strong>Nombre:</strong> N/A
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-envelope text-primary me-2"></i>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto:Directorop@cslcarga.com.co" class="text-white">
+                                        Directorop@cslcarga.com.co
+                                    </a>
+                                </p>
+                                <p class="mb-3">
+                                    <i class="bi bi-whatsapp text-primary me-2"></i>
+                                    <strong>WhatsApp:</strong><br>
+                                    <a href="https://wa.me/573135987172" target="_blank" class="text-white">
+                                        +57 3135987172
+                                    </a>
+                                </p>
+                                <a href="https://wa.me/573135987172" target="_blank"
+                                    class="btn btn-success btn-sm w-100">
+                                    <i class="bi bi-whatsapp me-2"></i>Enviar WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Coordinador Operativo -->
+                <div class="col-12 col-md-4">
+                    <div class="card bg-dark text-white h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="bi bi-person-circle" style="font-size: 4rem; color: #0d6efd;"></i>
+                            </div>
+                            <h4 class="card-title text-primary">Coordinador Operativo</h4>
+                            <p class="card-text mb-3">Seguimiento y control de rutas y entregas</p>
+
+                            <div class="contact-info text-start">
+                                <p class="mb-2">
+                                    <i class="bi bi-person-badge text-primary me-2"></i>
+                                    <strong>Nombre:</strong> N/A
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-envelope text-primary me-2"></i>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto: operativo1@cslcarga.com.co " class="text-white">
+                                        operativo1@cslcarga.com.co
+                                    </a>
+                                </p>
+                                <p class="mb-3">
+                                    <i class="bi bi-whatsapp text-primary me-2"></i>
+                                    <strong>WhatsApp:</strong><br>
+                                    <a href="https://wa.me/573135730492" target="_blank" class="text-white">
+                                        +57 3135730492
+                                    </a>
+                                </p>
+                                <a href="https://wa.me/573135730492" target="_blank"
+                                    class="btn btn-success btn-sm w-100">
+                                    <i class="bi bi-whatsapp me-2"></i>Enviar WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jefe Administrativa -->
+                <div class="col-12 col-md-4">
+                    <div class="card bg-dark text-white h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="bi bi-person-circle" style="font-size: 4rem; color: #0d6efd;"></i>
+                            </div>
+                            <h4 class="card-title text-primary">Jefe Administrativa</h4>
+                            <p class="card-text mb-3">Gestión administrativa y facturación</p>
+
+                            <div class="contact-info text-start">
+                                <p class="mb-2">
+                                    <i class="bi bi-person-badge text-primary me-2"></i>
+                                    <strong>Nombre:</strong> N/A
+                                </p>
+                                <p class="mb-2">
+                                    <i class="bi bi-envelope text-primary me-2"></i>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto: administrativo@cslcarga.com.co" class="text-white">
+                                        administrativo@cslcarga.com.co
+                                    </a>
+                                </p>
+                                <p class="mb-3">
+                                    <i class="bi bi-whatsapp text-primary me-2"></i>
+                                    <strong>WhatsApp:</strong><br>
+                                    <a href="https://wa.me/573205564175" target="_blank" class="text-white">
+                                        +57 3205564175
+                                    </a>
+                                </p>
+                                <a href="https://wa.me/573205564175" target="_blank"
+                                    class="btn btn-success btn-sm w-100">
+                                    <i class="bi bi-whatsapp me-2"></i>Enviar WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulario de Contacto -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-4">
+                        <h3>O envíanos un mensaje</h3>
+                        <p>Completa el formulario y te contactaremos a la brevedad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-md-12 p-0 pt-4 pb-4">
+                    <form
+                        action="https://script.google.com/macros/s/AKfycbyO8q9tStnFNIDg9Bqge9XfDeYNOoVn82Fk44DFeGg6SIO_AQQ-MBZNaAD3oDFZcOczjw/exec"
+                        method="POST" enctype="multipart/form-data" class="bg-dark p-4 m-auto" style="max-width: 800px;"
+                        id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre"
+                                        placeholder="Tu nombre" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="tu@email.com" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono"
+                                        placeholder="+57 300 123 4567" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="asunto" class="form-label">Asunto</label>
+                                    <select class="form-control" id="asunto" name="asunto" required>
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="cotizacion">Solicitar Cotización</option>
+                                        <option value="servicio">Información de Servicios</option>
+                                        <option value="flota">Consulta sobre Flota</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" name="mensaje"
+                                        placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 mt-3" id="submitBtn">
+                                    <i class="bi bi-send me-2"></i>Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CON REDES SOCIALES -->
+    <footer class="bg-dark p-4 text-center">
+        <div class="container">
+            <!-- REDES SOCIALES -->
+            <div class="social-icons mb-3">
+                <a href="https://wa.me/573001234567" target="_blank" class="text-white mx-3" title="WhatsApp">
+                    <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+                </a>
+                <a href="https://facebook.com/csltransporte" target="_blank" class="text-white mx-3" title="Facebook">
+                    <i class="bi bi-facebook" style="font-size: 1.8rem;"></i>
+                </a>
+                <a href="https://instagram.com/csl_logistica" target="_blank" class="text-white mx-3" title="Instagram">
+                    <i class="bi bi-instagram" style="font-size: 1.8rem;"></i>
+                </a>
+                <a href="https://linkedin.com/company/csl-carga" target="_blank" class="text-white mx-3"
+                    title="LinkedIn">
+                    <i class="bi bi-linkedin" style="font-size: 1.8rem;"></i>
+                </a>
+            </div>
+            <!-- HOVER EFECTO -->
+            <style>
+                .social-icons a:hover i {
+                    color: #fdfcfc !important;
+                    transition: color 0.3s ease;
+                }
+            </style>
+
+            <!-- DERECHOS RESERVADOS -->
+            <p class="text-white mb-0">© 2025 CSL - Carga Soluciones y Logística. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="efectos-avanzados.js"></script>
+
+    <!-- CHAT DE n8n: SCRIPT -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://angelddds.app.n8n.cloud/webhook/b4218a72-2456-4687-8f8f-3002e782ffdf/chat',
+            mode: 'window',
+            target: '#n8n-chat',
+            defaultLanguage: 'es',
+            showWelcomeScreen: true,
+            initialMessages: [
+                '¡Hola! Soy el asistente virtual de CSL',
+                '¿En qué puedo ayudarte hoy?'
+            ],
+            i18n: {
+                es: {
+                    title: 'CSL - Asistente Virtual',
+                    subtitle: '¿En qué podemos ayudarte?',
+                    footer: 'Conectado 24/7',
+                    getStarted: 'Nueva Conversación',
+                    inputPlaceholder: 'Escribe tu mensaje...',
+                }
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+
+</html>
