@@ -471,10 +471,10 @@ function createStatsCounter() {
         <section class="stats-section section-padding" style="background: linear-gradient(135deg, #000000 0%, #0d1b2a 100%); position: relative; overflow: hidden;">
             <div class="container">
                 <div class="row text-center">
-                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-truck" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3" data-target="500"><div class="skeleton-line"></div></h2><p class="text-white">Entregas Realizadas</p></div></div>
-                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-people" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3" data-target="150"><div class="skeleton-line"></div></h2><p class="text-white">Clientes Satisfechos</p></div></div>
-                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-geo-alt" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3" data-target="50"><div class="skeleton-line"></div></h2><p class="text-white">Ciudades Cubiertas</p></div></div>
-                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-star-fill" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3" data-target="98"><div class="skeleton-line"></div></h2><p class="text-white">% Satisfacción</p></div></div>
+                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-truck" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3"><span style="font-size: 0.9em;">+</span><span data-target="1000"><div class="skeleton-line"></div></span></h2><p class="text-white">Entregas Realizadas</p></div></div>
+                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-people" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3"><span style="font-size: 0.9em;">+</span><span data-target="150"><div class="skeleton-line"></div></span></h2><p class="text-white">Clientes Satisfechos</p></div></div>
+                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-geo-alt" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3"><span style="font-size: 0.9em;">+</span><span data-target="50"><div class="skeleton-line"></div></span></h2><p class="text-white">Ciudades Cubiertas</p></div></div>
+                    <div class="col-md-3 col-6 mb-4"><div class="stat-item"><i class="bi bi-star-fill" style="font-size: 50px; color: #0d6efd;"></i><h2 class="counter text-white mt-3"><span style="font-size: 0.9em;"></span><span data-target="98"><div class="skeleton-line"></div></span><span style="font-size: 0.9em;">%</span></h2><p class="text-white">% Satisfacción</p></div></div>
                 </div>
             </div>
         </section>
@@ -512,16 +512,17 @@ function createStatsCounter() {
                         const skeleton = counter.querySelector('.skeleton-line');
                         if (skeleton) skeleton.remove();
                         
-                        const target = +counter.getAttribute('data-target');
+                        const targetSpan = counter.querySelector('span[data-target]');
+                        const target = +targetSpan.getAttribute('data-target');
                         const increment = target / 100;
                         let current = 0;
                         const updateCounter = () => {
                             current += increment;
                             if (current < target) {
-                                counter.textContent = Math.ceil(current);
+                                targetSpan.textContent = Math.ceil(current);
                                 setTimeout(updateCounter, CONFIG.animationSpeed.counter);
                             } else {
-                                counter.textContent = target;
+                                targetSpan.textContent = target;
                                 counter.style.animation = 'glowText 2s infinite';
                             }
                         };
